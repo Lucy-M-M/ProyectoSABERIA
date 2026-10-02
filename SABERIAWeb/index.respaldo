@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABERIA - Diseño de Inicio de Sesión Verde</title>
+    
+    <!-- Iconos para los campos de texto -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        /* 1. AJUSTES DEL FONDO GENERAL (Pantalla Completa) */
+       body, html {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    height: 100vh !important;
+    background-color: #1a941e !important; /* Pinta toda la pantalla de verde */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+        /* 2. DISEÑO DE LA TARJETA BLANCA CENTRAL */
+.tarjeta-login {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) ;
+    width: 100%;
+    max-width: 380px ;
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
+}
+        /* Título Principal */
+        .titulo-marca {
+            /* 🟢 Color verde oscuro para el título principal */
+            color: #1b5e20;
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+        }
+
+        /* Subtítulo informativo */
+        .subtitulo-marca {
+            color: #666666;
+            font-size: 1rem;
+            margin: 0 0 35px 0;
+        }
+
+        /* 3. DISEÑO DE LOS CAMPOS DE TEXTO (INPUTS) */
+        .bloque-campo {
+            margin-bottom: 22px;
+            text-align: left; /* Alinea las etiquetas arriba a la izquierda */
+        }
+
+        /* Letra arriba de cada cuadro */
+        .bloque-campo label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #455a64;
+            font-size: 0.9rem;
+        }
+
+        /* Contenedor para alinear el icono con la caja de texto */
+        .caja-input-icono {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Icono verde dentro de la caja */
+        .caja-input-icono i {
+            position: absolute;
+            left: 12px;
+            /* 🟢 Color verde para los iconos de email y candado */
+            color: #2e7d32;
+            font-size: 1.3rem;
+        }
+
+        /* El cuadro de texto para escribir */
+        .caja-input-icono input {
+            width: 100%;
+            padding: 12px 12px 12px 42px; /* Margen izquierdo extra para que el texto no pise el icono */
+            border: 2px solid #cfd8dc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        /* Cambio de color verde cuando el usuario hace clic para escribir */
+        .caja-input-icono input:focus {
+            /* 🟢 Borde verde al enfocar el cuadro de texto */
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        /* 4. DISEÑO DEL BOTÓN DE INGRESO */
+        .btn-ingresar {
+            width: 100%;
+            /* 🟢 Color de botón verde bosque */
+            background-color: #1b5e20;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            transition: background-color 0.2s;
+        }
+
+        /* Cambio de color cuando el mouse pasa por encima del botón */
+        .btn-ingresar:hover {
+            /* 🟢 Tono de verde más claro al pasar el cursor */
+            background-color: #2e7d32;
+        }
+
+            #vista-dashboard {
+    display: none !important; /* Esconde las islas al arrancar */
+}
+
+/* Estilo extra para cuando entres al dashboard */
+.dashboard-activo {
+    background: #fafafa !important; /* Cambia el fondo verde por el gris claro de tu foto */
+    display: block !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+    </style>
+</head>
+<body>
+
+    <!-- TARJETA BLANCA CENTRAL -->
+    <div id="vista-login"class="tarjeta-login">
+        
+        <!-- ENCABEZADO -->
+        <h1 class="titulo-marca">SABERIA</h1>
+        <p class="subtitulo-marca">Acceso al ecosistema Educativo</p>
+        
+        <!-- CUADROS DE TEXTO -->
+        <form onsubmit="return false;">
+            
+            <!-- Campo 1: Correo -->
+            <div class="bloque-campo">
+                <label for="email">Correo Electrónico</label>
+                <div class="caja-input-icono">
+                    <i class="material-icons"></i>
+                    <input id="email" type="email" placeholder="">
+                </div>
+            </div>
+            
+            <!-- Campo 2: Contraseña -->
+            <div class="bloque-campo">
+                <label for="password">Contraseña</label>
+                <div class="caja-input-icono">
+                    <i class="material-icons"></i>
+                    <input id="password" type="password" placeholder="">
+                </div>
+            </div>
+            
+            <!-- BOTÓN DE ENVÍO -->
+            <button class="btn-ingresar">
+                INGRESAR <i class="material-icons"></i>
+            </button>
+            
+        </form>
+        
+    </div>
+
+<!-- ========================================== -->
+    <!-- BLOQUE DEL DASHBOARD (ISLAS DE CONOCIMIENTO) -->
+    <!-- ========================================== -->
+    <div id="vista-dashboard" style="display: none; background: #fafafa; min-height: 100vh; width: 100vw;">
+        <!-- Barra de arriba (Navbar) -->
+        <div style="background:white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border:1px solid #eeeeee;"> 
+
+    <h2 style="font-size: 32px;  
+    margin:0 0 20px 0; color:#1b5e20;text-align: center;">
+     ¡Hola, Estudiante!
+    </h2>
+
+    <p style=" font-size: 20px; 
+    margin:0 0 25px 0; 
+    color:#666; 
+    text-align: center;">
+        Explora tus Islas de Conocimiento
+    </p>
+
+    <span style=" font-size: 18px; 
+                 background:#e8f5e9; 
+                 color:#1b5e20;
+                 padding:6px 12px;
+
+                 border-radius:6px;
+                 font-weight:bold;
+                 display: block;
+                 text-align: center;">
+        Nivel 5 - Explorador
+    </span>
+
+</div>
+
+
+        <!-- Contenido Central (Tus cuadritos) -->
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+       
+            <!-- 🏝️ ISLA 1: MATEMÁTICAS (45%) -->
+            <div style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; border: 1px solid #eeeeee; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); width: 280px;">
+                <h5 style="margin: 0 0 15px 0; font-weight: bold; display: flex; align-items: center; color: #1b5e20;"><i class="material-icons" style="margin-right: 10px;">calculate</i> Matemáticas</h5>
+                <p style="color: #777; font-size: 0.9rem; margin: 0 0 5px 0;">Progreso de la isla: 45%</p>
+                <div style="height: 10px; background: #e0e0e0; border-radius: 5px;"><div style="width: 45%; height: 100%; background: #1b5e20; border-radius: 5px;"></div></div>
+                <div style="text-align: right; margin-top: 15px;"><button onclick="mostrarVista('vista-matematicas')" style="background: #2e7d32; color: white; border: none; padding: 10px 25px; font-weight: bold; border-radius: 4px; cursor: pointer;">ENTRAR</button>
+                </div>
+            </div>
+                    <!-- 🏝️ ISLA 2: LENGUAJE (70%) -->
+            <div style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);width: 280px;">
+                <h5 style="margin: 0 0 15px 0; font-weight: bold; display: flex; align-items: center; color: #1b5e20;"><i class="material-icons" style="margin-right: 10px;">menu_book</i> Lenguaje</h5>
+                <p style="color: #777; font-size: 0.9rem; margin: 0 0 5px 0;">Progreso de la isla: 70%</p>
+                <div style="height: 10px; background: #e0e0e0; border-radius: 5px;"><div style="width: 70%; height: 100%; background: #1b5e20; border-radius: 5px;"></div></div>
+                <div style="text-align: right; margin-top: 15px;"><button onclick="mostrarVista ('vista-lenguaje')" style="background:#2e7d32 ;color: white;border: none; padding: 10px 25px; font-weight: bold; border-radius: 4px; cursor: pointer;">ENTRAR</button>
+            </div>
+            </div>
+
+            <!-- 🏝️ ISLA 3: INGLÉS (20%) -->
+            <div style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);width: 280px;">
+                <h5 style="margin: 0 0 15px 0; font-weight: bold; display: flex; align-items: center; color: #1b5e20;"><i class="material-icons" style="margin-right: 10px;">translate</i> Inglés</h5>
+                <p style="color: #777; font-size: 0.9rem; margin: 0 0 5px 0;">Progreso de la isla: 20%</p>
+                <div style="height: 10px; background: #e0e0e0; border-radius: 5px;"><div style="width: 20%; height: 100%; background: #1b5e20; border-radius: 5px;"></div></div>
+                <div style="text-align: right; margin-top: 15px;"><button onclic="mostrarVista ('vista-ingles')" style="background: #2e7d32;color: white; border: none; padding: 10px 25px; font-weight: bold; border-radius: 4px; cursor: pointer;">ENTRAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ========================================== -->
+<!-- VISTA DE MATEMÁTICAS -->
+<!-- ========================================== -->
+
+<div id="vista-matematicas" style="display: none !important; background: #fafafa !important; min-height: 100vh !important; width: 100vw !important; padding: 30px !important; box-sizing: border-box !important; position: fixed !important; top: 0 !important; left: 0 !important; z-index: 9999 !important; overflow-y: auto !important;">
+    <!-- ENCABEZADO -->
+    <div style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #eeeeee; text-align: center;">
+
+        <h2 style="font-size: 32px; margin: 0 0 10px 0; color: #1b5e20;">
+            🧮 Matemáticas
+        </h2>
+
+        <p style="font-size: 18px; color: #666; margin: 0;">
+            ¡Bienvenido a tu Isla de Matemáticas!
+        </p>
+
+    </div>
+
+    <!-- TEMAS -->
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+
+        <!-- TEMA 1 -->
+        <div style="background: white; width: 280px; padding: 25px; border-radius: 12px; border: 1px solid #eeeeee; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+            <h3 style="color: #1b5e20; margin-top: 0;">
+                🔢 Operaciones básicas
+            </h3>
+
+            <p style="color: #777;">
+                Practica sumas, restas, multiplicaciones y divisiones.
+            </p>
+
+            <button style="background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                COMENZAR
+            </button>
+
+        </div>
+
+        <!-- TEMA 2 -->
+        <div style="background: white; width: 280px; padding: 25px; border-radius: 12px; border: 1px solid #eeeeee; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+            <h3 style="color: #1b5e20; margin-top: 0;">
+                📐 Geometría
+            </h3>
+
+            <p style="color: #777;">
+                Aprende sobre figuras, perímetros y áreas.
+            </p>
+
+            <button style="background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                COMENZAR
+            </button>
+
+        </div>
+
+        <!-- TEMA 3 -->
+        <div style="background: white; width: 280px; padding: 25px; border-radius: 12px; border: 1px solid #eeeeee; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+            <h3 style="color: #1b5e20; margin-top: 0;">
+                📊 Problemas matemáticos
+            </h3>
+
+            <p style="color: #777;">
+                Resuelve problemas y desarrolla tu razonamiento.
+            </p>
+
+            <button style="background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                COMENZAR
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- BOTÓN VOLVER -->
+    <div style="text-align: center; margin-top: 35px;">
+
+        <button onclick="mostrarVista('vista-dashboard')" 
+                style="background: #1b5e20; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+
+            ← VOLVER AL DASHBOARD
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ========================================== -->
+<!-- VISTA DE LENGUAJE -->
+<!-- ========================================== -->
+
+<div id="vista-lenguaje" style="display: none; background: #fafafa; min-height: 100vh; width: 100vw; padding: 30px; box-sizing: border-box;">
+
+    <!-- ENCABEZADO -->
+    <div style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #eeeeee; text-align: center;">
+
+        <h2 style="font-size: 32px; margin: 0 0 10px 0; color: #1b5e20;">
+            📖 Lenguaje
+        </h2>
+
+        <p style="font-size: 18px; color: #666; margin: 0;">
+            ¡Bienvenido a tu Isla de Lenguaje!
+        </p>
+
+    </div>
+
+    <!-- TEMAS -->
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+
+        <!-- TEMA 1 -->
+        <div style="background: white; width: 280px; padding: 25px; border-radius: 12px; border: 1px solid #eeeeee; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+            <h3 style="color: #1b5e20; margin-top: 0;">
+                📚 Comprensión lectora
+            </h3>
+
+            <p style="color: #777;">
+                Lee textos y demuestra cuánto has comprendido.
+            </p>
+
+            <button style="background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                COMENZAR
+            </button>
+
+        </div>
+
+        <!-- TEMA 2 -->
+        <div style="background: white; width: 280px; padding: 25px; border-radius: 12px; border: 1px solid #eeeeee; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+            <h3 style="color: #1b5e20; margin-top: 0;">
+                ✍️ Ortografía
+            </h3>
+
+            <p style="color: #777;">
+                Aprende y practica las reglas de escritura.
+            </p>
+
+            <button style="background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                COMENZAR
+            </button>
+
+        </div>
+
+        <!-- TEMA 3 -->
+        <div style="background: white; width: 280px; padding: 25px; border-radius: 12px; border: 1px solid #eeeeee; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+            <h3 style="color: #1b5e20; margin-top: 0;">
+                📝 Gramática
+            </h3>
+
+            <p style="color: #777;">
+                Fortalece tus conocimientos de gramática.
+            </p>
+
+            <button style="background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                COMENZAR
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- BOTÓN VOLVER -->
+    <div style="text-align: center; margin-top: 35px;">
+
+        <button onclick="mostrarVista('vista-dashboard')" 
+                style="background: #1b5e20; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+
+            ← VOLVER AL DASHBOARD
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ======================================================================= -->
+    <!-- BLOQUE DE INTERACCIÓN: PROGRAMACIÓN DEL BOTÓN DE INGRESO               -->
+    <!-- ======================================================================= -->
+    <script>
+        // 1. Buscamos los botones e inputs por sus clases e IDs correspondientes
+        const botonIngresar = document.querySelector('.btn-ingresar') || document.querySelector('button[type="button"]') || document.querySelector('.btn-large');
+        const campoEmail = document.getElementById('email');
+        const campoPassword = document.getElementById('password');
+        
+        // 2. Buscamos los bloques principales de las pantallas
+        const login = document.getElementById('vista-login') || document.querySelector('.login-bg-container') || document.querySelector('.tarjeta-login');
+        const dashboard = document.getElementById('vista-dashboard');
+
+        // 3. Programamos lo que pasa al presionar el botón ingresar
+        if (botonIngresar) {
+            botonIngresar.addEventListener('click', function(evento) {
+                evento.preventDefault(); // Evita que la página intente recargarse y borre los datos
+
+                // Credenciales fijas de prueba para la sustentación en el SENA
+                const correoCorrecto = 'estudiante@saberia.com';
+                const claveCorrecta = 'sena2026';
+
+                // 4. Validamos si los datos digitados coinciden
+                if (campoEmail.value === correoCorrecto && campoPassword.value === claveCorrecta) {
+                    
+                    // Ocultamos por completo todo el bloque del login verde
+                    if (login) {
+                        login.style.setProperty('display', 'none', 'important');
+                        // Por si acaso, ocultamos también su contenedor padre flotante
+                        if (login.parentElement && login.parentElement.tagName !== 'BODY') {
+                            login.parentElement.style.setProperty('display', 'none', 'important');
+                        }
+                    }
+                    
+                    // Le quitamos el fondo verde al cuerpo de la pantalla para que no dañe tus islas
+                    document.body.style.background= '#fafafa';
+                    document.body.style.display= 'block';
+                    document.body.style.alignItems='normal';
+                    document.body.style.height='auto';
+                    document.body.style.minHeight= '100vh';
+                    
+                    // Encendemos y mostramos el dashboard de tus islas de conocimiento
+                    if (dashboard) {
+                        dashboard.style.setProperty('display', 'block', 'important');
+                    }
+                    
+                    console.log('[SABERIA]: Ingreso exitoso a la plataforma web.');
+                } else {
+                    // Alerta nativa si las credenciales están mal escritas
+                    alert('⚠️ Credenciales incorrectas.\n\nPor favor usa los datos de prueba oficiales:\nCorreo: estudiante@saberia.com\nContraseña: sena2026');
+                }
+            });
+        }
+                // Función para cambiar entre las diferentes vistas
+        function mostrarVista(vista) {
+            // Ocultar todas las vistas
+            document.querySelectorAll('[id^="vista-"]').forEach(function(elemento) {
+                elemento.style.setProperty('display', 'none', 'important');
+            });
+
+            // Mostrar la vista seleccionada
+            const vistaSeleccionada = document.getElementById(vista);
+
+            if (vistaSeleccionada) {
+                vistaSeleccionada.style.setProperty('display', 'block', 'important');
+            }
+        }
+    </script>
+</body>
+</html>
+       

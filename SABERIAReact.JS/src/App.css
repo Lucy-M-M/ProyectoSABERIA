@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  padding:0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+.contenedor {
+  width:100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4384e6;
+}
+.encabezado{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: hsl(226, 95%, 63%);
+  padding:  25px 30px;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+.encabezado h1{
+  color: white;
+  margin: 2px ;
+  font-size: 28px;
+}
+
+main h2 {
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  border-left: 6px solid #2563eb; /* Una línea azul llamativa a la izquierda */
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fila-titulo-editar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;             /* Hace que ocupe todo el ancho de la pantalla */
+  background-color: #ffffff; /* Si quieres que toda la franja sea blanca (o quítalo si prefieres que sea transparente) */
+  padding: 5px 5px;      /* Espacio a los lados para que no quede pegado a los bordes */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Una sombrita sutil opcional para que se vea profesional */
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.tarjeta {
+  background: white;
+  width: 450px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+  text-align: ceter;
+  color: #0d47a1;
+}
+
+h2 {
+  text-align: center;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #666;
+  margin-bottom: 100px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  width: auto;
+  margin-top: 15px;
+  padding: 10 px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #1565c0;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d47a1;
+}
+
+.enlace {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.boton-secundario {
+  background: #1976d2;
+}
+.perfil-contenido {
+  display: grid;
+  grid-template-columns: repeat(2, 520px); 
+  gap: 35px;
+  padding: 30px;
+  justify-content: center;
+  max-width: 960px; /* Limitamos el ancho máximo del contenedor */
+  margin: 0 auto; /* Centramos el contenedor */
+  background: #f4f6f8;
+  min-height: 85vh;;
+  text-align: left;
+  font-size: 23px;
+  
+}
+/* Estilos general de las tarjetas  */
+.tarjeta-perfil {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border:1px solid #e2e8f0;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font-size: 23px;
+
+}
+/* Esto centra únicamente el título de cada tarjeta */
+.tarjeta-perfil h3 {
+  text-align: center;
+}
+
+.item-asignatura {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 23px;
+  margin-bottom: 20px; /* Espacio entre los elementos */
+  width: 100%;
+
+}
+/* Espaciado para los renglones de la tarjeta de Información personal */
+.tarjeta-perfil p,
+.tarjeta.perfil p {
+  margin-bottom: 18px;
+}
+
+/* Espaciado para los elementos de la tarjeta de Resumen académico */
+.resumen div {
+  margin-bottom: 15px;
+}
+/* Contenedor general del resumen para alinear los elementos en fila horizontal */
+.resumen {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+/* Cada columna de estadística */
+.resumen div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #f8fafc;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  flex: 1;
+}
+
+/* El número grande resaltado */
+.resumen div strong {
+  font-size: 26px;
+  color: #1976d2;
+  margin-bottom: 5px;
+}
+
+/* El texto descriptivo abajo del número */
+.resumen div span {
+  font-size: 23px;
+  color: #475569;
+  font-weight: 500;
+}
